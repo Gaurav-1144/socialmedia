@@ -59,20 +59,20 @@ module.exports.create = async function (req,res){
     };
 
 // get sign up data
-module.exports.createsession = async function(req,res){
-    
-    let user = await User.findOne({email:req.body.email});
-    if(!user){
-        console.log("Invalid User");
-        return res.redirect('back');
-    } else {
-        if(user.password === req.body.password){
-            res.cookie('user_id',user.id);
-            console.log("Welcome");
-            return res.redirect('/users/profile');
-        } else {
-            console.log("Password Wrong");
-            return res.redirect('back');
-        }
-    }
+module.exports.createsession = function(req,res){
+    return res.redirect('/');
+    // let user = await User.findOne({email:req.body.email});
+    // if(!user){
+    //     console.log("Invalid User");
+    //     return res.redirect('back');
+    // } else {
+    //     if(user.password === req.body.password){
+    //         res.cookie('user_id',user.id);
+    //         console.log("Welcome");
+    //         return res.redirect('/users/profile');
+    //     } else {
+    //         console.log("Password Wrong");
+    //         return res.redirect('back');
+    //     }
+    // }
 }
